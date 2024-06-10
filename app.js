@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define a simple route
-app.get('/', (req, res) => {
-    res.json('Welcome to my API!');
+app.get('', (req, res) => {
+    const message = 'Welcome to my API!';
+    res.json(message);
 });
-
 // Define a route to get all items
 app.get('/brandnames', async (req, res) => {
     try {

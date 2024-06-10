@@ -87,8 +87,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "dev": "nodemon app",
-    "build": "echo 'No build step required'"
+    "dev": "nodemon app" 
   },
   "author": "Sharandeep Singh",
   "license": "ISC",
