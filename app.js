@@ -47,7 +47,7 @@ app.get('/coursename', async (req, res) => {
 
 // GET /search endpoint
 app.get('/search', async (req, res) => {
-    const { brandname, course_id, region } = req.query;
+    const { brandname, course_id, start_date, region } = req.query;
 
     try {
         const result = await pool.query(
@@ -55,8 +55,9 @@ app.get('/search', async (req, res) => {
             FROM public.courseassigned
             WHERE brandname = $1
             AND course_id = $2
-            AND region = $3`,
-            [brandname, course_id, region]
+            AND TO_DATE(start_date, 'DD-MM-YYYY') BETWEEN TO_DATE($3, 'YYYY-MM-DD') - INTERVAL '9 days' AND TO_DATE($3, 'YYYY-MM-DD') + INTERVAL '9 days'
+            AND region = $4`,
+            [brandname, course_id, start_date, region]
         );
 
         if (result.rows.length === 0) {
