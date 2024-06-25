@@ -89,7 +89,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
     "dev": "nodemon app",
-    "server": "node app"
+    "build": "echo 'No build step required'"
   },
   "author": "Sharandeep Singh",
   "license": "ISC",
